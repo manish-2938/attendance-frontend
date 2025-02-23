@@ -1,0 +1,20 @@
+<div class="min-h-screen bg-black text-white flex flex-col items-center p-4">
+    <h1 class="text-3xl font-bold mb-4">Upcoming Events</h1>
+    <p *ngIf="errorMessage" class="text-red-500 mb-4">{{ errorMessage }}</p>
+  
+    <div *ngIf="events.length > 0; else noEvents" class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 w-full max-w-4xl">
+      <div
+        *ngFor="let event of events"
+        class="bg-[#272727] p-4 rounded-lg shadow-md cursor-pointer hover:bg-[#333333]"
+        (click)="openEventDetails(event._id)">
+        <h2 class="text-xl font-semibold">{{ event.name }}</h2>
+        <p class="text-sm">Date: {{ event.date | date: 'longDate' }}</p>
+        <p class="text-sm">Time: {{ event.startTime | date: 'shortTime' }}</p>
+      </div>
+    </div>
+  
+    <ng-template #noEvents>
+      <p class="text-lg">No events available</p>
+    </ng-template>
+  </div>
+  

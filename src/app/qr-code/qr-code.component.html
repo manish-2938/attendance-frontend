@@ -1,0 +1,5 @@
+<div class="flex flex-col items-center">
+    <p class="text-white mb-4 text-lg">Your QR Code:</p>
+    <qrcode *ngIf="qrData" [qrdata]="qrData" [width]="200" [errorCorrectionLevel]="'M'" class="bg-white p-4 rounded-lg shadow-lg"></qrcode>
+  </div>
+  

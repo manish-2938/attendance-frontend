@@ -1,0 +1,50 @@
+<div class="flex items-center justify-center min-h-screen bg-black">
+    <div class="p-8 rounded-lg w-full max-w-sm">
+      <h2 class="text-white text-2xl font-bold mb-6 text-center">Sign Up</h2>
+  
+      <form (ngSubmit)="onSubmit()" #signUpForm="ngForm">
+        <div class="mb-4">
+          <input 
+            type="text" 
+            placeholder="First Name" 
+            class="w-full p-3 rounded-md bg-[#272727] text-white"
+            [(ngModel)]="username" 
+            name="username" 
+            required>
+        </div>
+        <div class="mb-4">
+          <input 
+            type="password" 
+            placeholder="Set Password" 
+            class="w-full p-3 rounded-md bg-[#272727] text-white"
+            [(ngModel)]="password" 
+            name="password" 
+            required>
+        </div>
+  
+        <div class="mb-4">
+          <input 
+            type="password" 
+            placeholder="Confirm Password" 
+            class="w-full p-3 rounded-md bg-[#272727] text-white"
+            [(ngModel)]="confirmPassword" 
+            name="confirmPassword" 
+            required>
+        </div>
+  
+        <div class="mb-4">
+          <button 
+            type="submit" 
+            class="w-full p-3 bg-[#005C57] text-white rounded-md" 
+            [disabled]="signUpForm.invalid">
+            Sign Up
+          </button>
+        </div>
+      </form>
+      <div class="mb-4 text-center">
+        <p class="text-white">Already have an account? <a [routerLink]="'/admin-login'" class="text-[#005C57]">Login</a></p>
+      </div>
+      
+    </div>
+  </div>
+  

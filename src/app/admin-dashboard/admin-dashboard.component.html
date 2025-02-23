@@ -1,0 +1,35 @@
+<div class="admin-dashboard">
+    <h1 class="text-white text-2xl text-center">Admin Dashboard</h1>
+  
+    <!-- Buttons -->
+    <div class="flex justify-center gap-4 mt-4">
+      <button (click)="createEvent()" class="btn">Create Event</button>
+    </div>
+  
+    <!-- Events List -->
+    <div class="event-list mt-6">
+      <h2 class="text-white text-xl mb-2">Events</h2>
+  
+      <div *ngIf="events.length > 0; else noEvents">
+        <div *ngFor="let event of events" class="event-card">
+          <h3 class="text-lg font-bold">{{ event.name }}</h3>
+          <p><strong>Date:</strong> {{ event.date | date:'longDate' }}</p>
+          <p><strong>Time:</strong> {{ event.startTime | date: 'shortTime' }}</p>
+  
+          <div class="flex gap-2 mt-2">
+            <button (click)="editEvent(event._id)" class="btn-edit">Edit</button>
+            <button (click)="deleteEvent(event._id)" class="btn-delete">Delete</button>
+            <button (click)="downloadAttendance(event._id)" class="bg-blue-500 text-white px-4 py-2 rounded">
+              Download Attendance
+            </button>
+            
+          </div>
+        </div>
+      </div>
+      <!-- No Events Message -->
+      <ng-template #noEvents>
+        <p class="text-white">No events available</p>
+      </ng-template>
+    </div>
+  </div>
+  

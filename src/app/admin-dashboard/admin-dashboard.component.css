@@ -1,0 +1,36 @@
+.admin-dashboard {
+    background: black;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .btn {
+    background: #005C57;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .event-card {
+    background: #272727;
+    color: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  
+  .btn-edit {
+    background: #3498db;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .btn-delete {
+    background: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  

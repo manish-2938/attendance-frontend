@@ -1,0 +1,31 @@
+<div class="flex flex-col items-center justify-center min-h-screen bg-black text-white p-4">
+
+    <!-- QR Code Scanner -->
+    <div class="w-full max-w-md mb-8">
+      <zxing-scanner
+        [formats]="formats"
+        (scanSuccess)="onScanSuccess($event)"
+        [tryHarder]="true"
+        class="w-full h-72 border-4 border-solid border-white rounded-lg">
+      </zxing-scanner>
+    </div>
+  
+    <!-- Display Scanned Result -->
+    <div *ngIf="scannedResult" class="w-full max-w-md bg-gray-800 rounded-lg p-6">
+      <h2 class="text-xl font-bold text-center mb-4">Scanned Data:</h2>
+      
+      <div *ngIf="!scannedResult.error; else errorTemplate">
+        <p class="text-lg mb-2"><strong>1. Name of Event:</strong> {{ scannedResult.eventName || 'N/A' }}</p>
+        <p class="text-lg mb-2"><strong>2. Roll Number of Student:</strong> {{ scannedResult.rollNumber || 'N/A' }}</p>
+        <p class="text-lg mb-2"><strong>3. Name of Student:</strong> {{ scannedResult.firstName || 'N/A' }} {{scannedResult.lastName || 'N/A'}}</p>
+        <p class="text-lg mb-4"><strong>4. Branch of Student:</strong> {{ scannedResult.department || 'N/A' }}</p>
+      </div>
+  
+      <!-- Error Message for Invalid QR Code -->
+      <ng-template #errorTemplate>
+        <p class="text-red-500 text-center">{{ scannedResult.error }}</p>
+      </ng-template>
+    </div>
+  
+  </div>
+  

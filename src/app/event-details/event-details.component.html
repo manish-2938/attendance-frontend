@@ -1,0 +1,29 @@
+<div class="min-h-screen bg-black text-white flex flex-col items-center p-6">
+    <ng-container *ngIf="event">
+      <div class="bg-[#272727] p-6 rounded-lg shadow-md w-full max-w-lg">
+        <h1 class="text-3xl font-bold">{{ event.name }}</h1>
+        <p class="mt-4">Date: {{ event.date | date: 'longDate' }}</p>
+        <p>Time: {{ event.startTime | date: 'shortTime' }}</p>
+        <p>Entry allowed till: {{ event.entryTime }}</p>
+
+        <button
+          class="mt-4 bg-[#005C57] text-white py-2 px-4 rounded-lg disabled:bg-gray-600"
+          [disabled]="!isEntryAllowed()"
+          (click)="generateQRCode()">
+          Generate QR
+        </button>
+        <div *ngIf="qrCode"> 
+          <app-qr-code
+            [eventId]="event._id"
+            [eventName]="event.name"
+            [firstName]="student.firstName"
+            [lastName] = "student.lastName"
+            [rollNumber]="student.rollNumber"
+            [department]="student.department"
+          ></app-qr-code>       
+          
+      </div>
+    <ng-template #loading>
+      <p>Loading event details...</p>
+    </ng-template>
+  </div>
