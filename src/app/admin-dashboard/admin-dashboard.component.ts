@@ -20,7 +20,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   fetchEvents() {
-    this.http.get<any[]>('https://attendance-marker.up.railway.app/api/events', { withCredentials: true }).subscribe(
+    this.http.get<any[]>('https://attendancemarker.in/api/events', { withCredentials: true }).subscribe(
       (data) => {
         this.events = data;
       },
@@ -32,7 +32,7 @@ export class AdminDashboardComponent implements OnInit {
 
   deleteEvent(eventId: string) {
     if (confirm('Are you sure you want to delete this event?')) {
-      this.http.delete(`https://attendance-marker.up.railway.app/api/events/${eventId}`, { withCredentials: true }).subscribe(
+      this.http.delete(`https://attendancemarker.in/api/events/${eventId}`, { withCredentials: true }).subscribe(
         () => {
           this.fetchEvents(); // Refresh events list
         },
@@ -52,7 +52,7 @@ export class AdminDashboardComponent implements OnInit {
     this.router.navigate(['/create-event']); // Navigate to create event page
   }
   downloadAttendance(eventId: string) {
-    this.http.get(`https://attendance-marker.up.railway.app/api/attendance/export/${eventId}`, { 
+    this.http.get(`https://attendancemarker.in/api/attendance/export/${eventId}`, { 
       responseType: 'blob', // Expect binary data
       withCredentials: true 
     }).subscribe(blob => {

@@ -22,7 +22,7 @@ export class LoginComponent {
   onSubmit() {
     const user = { rollNumber: this.rollNumber, password: this.password };
 
-    this.http.post('https://attendance-marker.up.railway.app/api/login', user, { withCredentials: true })
+    this.http.post('https://attendancemarker.in/api/login', user, { withCredentials: true })
       .subscribe({
         next: () => {alert('User signed up successfully'); this.router.navigate(['/main'])},
         error: (err) => {this.errorMessage = err.error

@@ -36,7 +36,7 @@ export class QrCodeScannerComponent {
   markAttendance(eventId: string, firstName: string, lastName: string, rollNumber: string, department: string): void {
     console.log('Sending data:', { eventId, firstName, lastName, rollNumber, department });
     try{
-    this.http.post('https://attendance-marker.up.railway.app/api/attendance/mark', { eventId, firstName, lastName, rollNumber, department })
+    this.http.post('https://attendancemarker.in/api/attendance/mark', { eventId, firstName, lastName, rollNumber, department })
       .subscribe({
         next: (response) => {
           alert('Attendance marked successfully!');
