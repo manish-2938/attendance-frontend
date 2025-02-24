@@ -22,7 +22,7 @@ export class EventDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.http.get('http://localhost:5000/api/students/getStudent', { withCredentials: true })
+    this.http.get('https://attendance-marker.up.railway.app/api/students/getStudent', { withCredentials: true })
     .subscribe({
       next: (data) => {
         this.student = data;

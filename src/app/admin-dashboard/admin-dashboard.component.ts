@@ -20,7 +20,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   fetchEvents() {
-    this.http.get<any[]>('http://localhost:5000/api/events', { withCredentials: true }).subscribe(
+    this.http.get<any[]>('https://attendance-marker.up.railway.app/api/events', { withCredentials: true }).subscribe(
       (data) => {
         this.events = data;
       },
@@ -32,7 +32,7 @@ export class AdminDashboardComponent implements OnInit {
 
   deleteEvent(eventId: string) {
     if (confirm('Are you sure you want to delete this event?')) {
-      this.http.delete(`http://localhost:5000/api/events/${eventId}`, { withCredentials: true }).subscribe(
+      this.http.delete(`https://attendance-marker.up.railway.app/api/events/${eventId}`, { withCredentials: true }).subscribe(
         () => {
           this.fetchEvents(); // Refresh events list
         },

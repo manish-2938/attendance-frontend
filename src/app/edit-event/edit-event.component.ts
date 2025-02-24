@@ -37,7 +37,7 @@ export class EditEventComponent implements OnInit {
     this.eventId = this.route.snapshot.paramMap.get('id') || '';
 
     // Fetch event details
-    this.http.get(`http://localhost:5000/api/events/${this.eventId}`, { withCredentials: true }).subscribe({
+    this.http.get(`https://attendance-marker.up.railway.app/api/events/${this.eventId}`, { withCredentials: true }).subscribe({
       next: (event: any) => {
         this.eventForm.patchValue({
           name: event.name,
