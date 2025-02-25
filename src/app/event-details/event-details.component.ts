@@ -22,7 +22,7 @@ export class EventDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.http.get('https://attendancemarker.in/api/students/getStudent', { withCredentials: true })
+    this.http.get('https://attendance-marker.up.railway.app/api/students/getStudent', { withCredentials: true })
     .subscribe({
       next: (data) => {
         this.student = data;
@@ -38,7 +38,7 @@ export class EventDetailsComponent implements OnInit {
   fetchEventDetails(eventId: string | null): void {
     if (eventId) {
       this.http
-        .get<any>(`https://attendancemarker.in/api/events/${eventId}`, {withCredentials: true})
+        .get<any>(`https://attendance-marker.up.railway.app/api/events/${eventId}`, {withCredentials: true})
         .subscribe({
           next: (data) => {
             this.event = data;

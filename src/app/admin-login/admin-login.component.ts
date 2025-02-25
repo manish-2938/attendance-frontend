@@ -22,7 +22,7 @@ export class AdminLoginComponent {
   onSubmit() {
     const user = { username: this.username, password: this.password };
 
-    this.http.post('https://attendancemarker.in/api/admin-login', user, { withCredentials: true })
+    this.http.post('https://attendance-marker.up.railway.app/api/admin-login', user, { withCredentials: true })
       .subscribe({
         next: () => this.router.navigate(['/admin-dashboard']),
         error: (err) => this.errorMessage = err.error

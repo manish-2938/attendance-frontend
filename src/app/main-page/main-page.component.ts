@@ -41,7 +41,7 @@ export class MainPageComponent implements OnInit {
   // 
   
   fetchEvents(): void {
-    this.http.get<any[]>('https://attendancemarker.in/api/events', { withCredentials: true }).subscribe({
+    this.http.get<any[]>('https://attendance-marker.up.railway.app/api/events', { withCredentials: true }).subscribe({
       next: (data) => {
         const today = new Date();
         today.setHours(0, 0, 0, 0); // Set time to the start of the day

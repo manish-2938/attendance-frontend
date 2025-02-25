@@ -52,7 +52,7 @@ export class CreateEventComponent {
         }))
       };
 
-      this.http.post('https://attendancemarker.in/api/events', payload, { withCredentials: true })
+      this.http.post('https://attendance-marker.up.railway.app/api/events', payload, { withCredentials: true })
         .subscribe({
           next: () =>{ alert('Event created successfully!');
             this.router.navigate(['/admin-dashboard']);

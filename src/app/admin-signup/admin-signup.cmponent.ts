@@ -30,7 +30,7 @@ export class AdminSignUpComponent {
       confirmPassword: this.confirmPassword
     };
 
-    this.http.post('https://attendancemarker.in/api/admin-signup', user)
+    this.http.post('https://attendance-marker.up.railway.app/api/admin-signup', user)
       .subscribe({
         next: () => {alert('User signed up successfully');
            this.router.navigate(['/admin-login']);
